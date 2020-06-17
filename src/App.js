@@ -1,12 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-import { getView } from "./ducks/view";
+// import { getView } from "./ducks/view";
 import Order from "./components/Order";
-import Welcome from "./components/Welcome";
+// import Welcome from "./components/Welcome";
 
 const App = () => {
-  const { view } = useSelector(getView);
+  // const { view } = useSelector(getView);
 
   return (
     <div>
