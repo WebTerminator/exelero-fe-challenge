@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getView, setView } from "./ducks/view";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  const { view } = useSelector(getView);
+
+  const handleOnClick = () => dispatch(setView("order"));
+
+  console.log("view: ", view);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* SCREEN 1 - button to order drink */}
+      {view === "welcome" && (
+        <button onClick={handleOnClick}>What drink would you like ?</button>
+      )}
+      {view === "order" && <p>drink customization functionality</p>}
+      {/* SCREEN 1 - button to order drink */}
+      {/* SCREEN 1 - button to order drink */}
     </div>
   );
-}
+};
 
 export default App;
