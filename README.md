@@ -3,12 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## ASSUMPTIONS / CONSIDERATIONS
 
 - The user can only choose one ingredient at any given time. (This could be improved by letting the user choosing more than 1 ingredient with a multiselect)
-- Small unit test coverage present. In an ideal world we should aim for a 100% unit test coverage (snapshots, unit tests)
-- The components directory is too generic. Personally I would split this further into pure components (storybook)
-- The codebase would definetely benefit from further refactoring (better use of Material UI)
+- Small unit test coverage present. In an ideal world we should aim for a 100%-unit test coverage (snapshots, unit tests)
+- The components directory is too generic. Personally, I would split this further into pure components (storybook)
+- The codebase would definitely benefit from further refactoring (better use of Material UI)
 - Ducks redux pattern has been adopted mainly for personal preference.
-- The UX has room for major improvments. 
+- The UX has room for major improvements.
 - Minor animations could be added to make the ordering process more attracting.
+
 
 
 ## Available Scripts
