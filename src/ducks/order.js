@@ -22,6 +22,23 @@ export const setLoading = (loadingState) => ({
   payload: loadingState,
 });
 
+export const resetOrder = () => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_INGREDIENT,
+      payload: "",
+    });
+    dispatch({
+      type: SET_SELECTED_COCKTAIL,
+      payload: null,
+    });
+    dispatch({
+      type: SET_COCKTAILS,
+      payload: [],
+    });
+  };
+};
+
 const setSelectedCocktail = (cocktail) => ({
   type: SET_SELECTED_COCKTAIL,
   payload: cocktail,
@@ -72,10 +89,9 @@ export default function reducer(state = initialState, action) {
         cocktails: action.payload,
       };
     case SET_SELECTED_COCKTAIL:
-      const { drinks } = action.payload;
       return {
         ...state,
-        cocktailSelected: drinks[0],
+        cocktailSelected: action.payload ? action.payload.drinks[0] : null,
       };
     default:
       return state;
