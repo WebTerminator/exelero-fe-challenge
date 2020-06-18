@@ -12,3 +12,6 @@ const request = async (url) => {
 
 export const getCocktailsByIngredient = (ingredient) =>
   request(`/filter.php?i=${ingredient}`);
+
+export const getCocktailInfo = (cocktail) =>
+  request(`/search.php?s=${cocktail}`);
