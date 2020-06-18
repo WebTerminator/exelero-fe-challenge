@@ -50,7 +50,7 @@ const MediaCard = ({
               </div>
               <div>
                 <Typography component="p">
-                  Ingredients: {strIngredient1} {strIngredient2}
+                  Ingredients: {strIngredient1}, {strIngredient2},
                   {strIngredient3}
                 </Typography>
               </div>

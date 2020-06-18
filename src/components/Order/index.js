@@ -23,6 +23,7 @@ import {
   fetchSelectedCocktailDetails,
   setIngredient,
 } from "../../ducks/order";
+import { setView } from "../../ducks/view";
 import MediaCard from "../Card";
 import LoadingSpinner from "../LoadingSpinner";
 
@@ -30,7 +31,7 @@ const useStyles = makeStyles(() => ({
   formControl: {
     margin: "2rem auto 4rem",
     maxWidth: "70%",
-    minWidth: 250,
+    minWidth: "30rem",
   },
 }));
 
@@ -46,6 +47,8 @@ const Order = () => {
   const [selectedIngredient, updateIngredient] = useState(ingredient);
 
   const renderSelectedCocktailCard = () => {
+    const placeDrinOrder = () => dispatch(setView("final"));
+
     const {
       strDrink,
       strDrinkThumb,
@@ -68,7 +71,11 @@ const Order = () => {
           strIngredient2={strIngredient2}
           strIngredient3={strIngredient3}
         />
-        <OrderButton variant="contained" color="secondary">
+        <OrderButton
+          onClick={placeDrinOrder}
+          variant="contained"
+          color="secondary"
+        >
           Order you {strDrink}
         </OrderButton>
       </SelectedDrinkWrapper>
@@ -90,7 +97,10 @@ const Order = () => {
     <Wrapper>
       <SelectOrder>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-helper-label">
+          <InputLabel
+            style={{ fontSize: "1.2rem" }}
+            id="demo-simple-select-helper-label"
+          >
             Select your favourite ingredient
           </InputLabel>
           <Select
