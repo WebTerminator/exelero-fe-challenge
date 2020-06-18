@@ -29,10 +29,8 @@ const setSelectedCocktail = (cocktail) => ({
 
 export const fetchSelectedCocktailDetails = (cocktail) => {
   return async (dispatch) => {
-    try {
-      const selectedCocktail = await getCocktailInfo(cocktail);
-      dispatch(setSelectedCocktail(selectedCocktail.drinks[0]));
-    } catch (error) {}
+    const selectedCocktail = await getCocktailInfo(cocktail);
+    dispatch(setSelectedCocktail(selectedCocktail));
   };
 };
 
@@ -48,9 +46,8 @@ export const fetchCocktailsByIngredient = (ingredient) => {
       const cocktails = await getCocktailsByIngredient(ingredient);
       dispatch(setLoading(false));
       dispatch(setCocktails(cocktails));
-      // dispatch(getPostsSuccess(data));
     } catch (error) {
-      // dispatch(getPostsFailure())
+      // some sort of error
     }
   };
 };
@@ -75,9 +72,10 @@ export default function reducer(state = initialState, action) {
         cocktails: action.payload,
       };
     case SET_SELECTED_COCKTAIL:
+      const { drinks } = action.payload;
       return {
         ...state,
-        cocktailSelected: action.payload,
+        cocktailSelected: drinks[0],
       };
     default:
       return state;
